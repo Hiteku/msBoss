@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-family: Time New Roman, 微軟正黑體;
+  --bgColor: #424242;
+  --fontColor: #ddd;
+}
+
+table {
+  border-collapse: collapse;
+  width: 95%;
+  margin-bottom: 0.5em;
+  color: var(--fontColor);
+}
+
+table th,
+table td {
+  border: 0.5px solid #ddd;
+  border-style: dashed;
+  padding: 0.5em;
+  text-align: center;
+  white-space: pre-wrap;
+  text-align: center;
+}
+
+.src {
+  text-decoration: none;
+  color: #ddd;
+}
+
+#src {
+  text-align: center;
+  color: #ddd;
+}
