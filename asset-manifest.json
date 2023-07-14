@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/msBoss/static/css/main.1bc03b85.css",
+    "main.js": "/msBoss/static/js/main.ed6a6e00.js",
+    "index.html": "/msBoss/index.html",
+    "main.1bc03b85.css.map": "/msBoss/static/css/main.1bc03b85.css.map",
+    "main.ed6a6e00.js.map": "/msBoss/static/js/main.ed6a6e00.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1bc03b85.css",
+    "static/js/main.ed6a6e00.js"
+  ]
+}
