@@ -6,6 +6,7 @@ import { createStore, combineReducers } from "redux";
 import BossList from "./bossDirectory";
 import bossesReducer from './bossData';
 import "./style.css";
+import Sidebar from './sidebar';
 
 function filterReducer(state = 'SHOW_ALL', action) {
     switch (action.type) {
@@ -47,6 +48,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Wrapper>
+        <Sidebar />
         <Title>楓之谷BOSS篩選器</Title>
         <BossList />
       </Wrapper>
