@@ -37,7 +37,7 @@ const Sidebar = () => {
         )}
         <div className="content">
           <div className="other-tools">
-            <h2>其他工具</h2>
+            <h2>Other Tool</h2>
             <ul>
               <li>
                 <h4>新楓之谷</h4>
@@ -52,7 +52,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <a href="https://hiteku.github.io/msClip/">裝備自動裁剪</a>
-                    <img src={"https://hiteku.github.io/img/ms/icon/米特拉的憤怒選擇箱.png"} alt="" style={{ width: '25px', margin: '0 0 0 2px' }} />
+                    <img src={"https://hiteku.github.io/img/ms/icon/白金神奇剪刀.png"} alt="" style={{ width: '22px', margin: '0 0 0 2.5px' }} />
                   </li>
                   <li>
                     <a href="https://hiteku.github.io/msRole/">職業列表：傳授戰地、萌獸終傷</a>
