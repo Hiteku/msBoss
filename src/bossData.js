@@ -425,7 +425,7 @@ const bosses = [
     timeout: "30|30",
     death: "無限|15",
     complete: "每日|每週",
-    other: "-|[寵物箱子] 暗黑之魂",
+    other: "[寵物箱子] 暗黑之魂|[寵物箱子] 暗黑之魂",
     furniture: "-|希拉方尖碑造型立燈",
     equipment: "永生之石|永生之石,地獄火耳環",
     essence: "true|true",
