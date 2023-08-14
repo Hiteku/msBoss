@@ -13,8 +13,8 @@ const bosses = [
     other: "-|咖凌機器人",
     furniture: "-|咖凌陽傘",
     equipment: "-|遺留的咖凌意志",
-    crystallization: "-|尚無資料",
-    crystallizationRB: "-|尚無資料",
+    crystallization: "-|3.5億",
+    crystallizationRB: "-|17.5億",
     memo: "AUT"
   },
   {
@@ -250,7 +250,7 @@ const bosses = [
     defense: "100",
     timeout: "60",
     death: "20",
-    complete: "每日",
+    complete: "每週",
     other: "妖蝶姬之座椅,濃姬傷害字型,濃姬特效交換券",
     equipment: "魅惑的碎片",
     crystallization: "895萬3200",
