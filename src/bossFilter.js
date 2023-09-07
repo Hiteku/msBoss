@@ -94,32 +94,32 @@ function Filter(props) {
       <Button
         active={props.selected === "SHOW_ALL"}
         onClick={() => dispatch(setFilter("SHOW_ALL"))}
-      >
-        全部
+      >全部
       </Button>
       <Button
         active={props.selected === "SHOW_SP"}
         onClick={() => dispatch(setFilter("SHOW_SP"))}
-      >
-        特殊
+      >特殊
       </Button>
       <Button
         active={props.selected === "SHOW_FT"}
         onClick={() => dispatch(setFilter("SHOW_FT"))}
-      >
-        家具
+      >家具
       </Button>
       <Button
         active={props.selected === "SHOW_EQ"}
         onClick={() => dispatch(setFilter("SHOW_EQ"))}
-      >
-        重點裝備
+      >重點裝備
       </Button>
       <Button
         active={props.selected === "SHOW_ES"}
         onClick={() => dispatch(setFilter("SHOW_ES"))}
-      >
-        祈禱精髓
+      >祈禱精髓
+      </Button>
+      <Button
+        active={props.selected === "SHOW_AB"}
+        onClick={() => dispatch(setFilter("SHOW_AB"))}
+      >可疑附加
       </Button>
       <CheckBoxWrapper>
         <CheckBox id="checkbox" type="checkbox"

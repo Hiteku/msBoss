@@ -27,7 +27,6 @@ function Item(item, index, type) {
   item = item.replaceAll('λ', '')
   index = (index === undefined) ? 0 : index
   t = item.split('|')
-  if (t[index] === '-') return ''
   if (type === 4) // eslint-disable-next-line
     result = <><img src={path + "icon/" + "楓幣減免.png"}/><img src={path + "icon/" + "固定潛能.png"}/></>;
   else {
@@ -73,6 +72,7 @@ function newTR(props, length) {
         <td>{Item(props.boss.furniture, i, 2)}</td>
         <td>{Item(props.boss.equipment, i, 3)}</td>
         <td>{Item(props.boss.essence, i, 4)}</td>
+        <td>{Item(props.boss.additional, i, 5)}</td>
         <td>{Item(crystal, i)}</td>
       </tr>)
   }
@@ -88,16 +88,17 @@ function BossItem(props) {
       <tbody>
         <tr>
           <td style={{width: "15%"}} rowspan={l}><img style={{width: "170px"}} src={path + "boss/" + props.boss.img + ".png"} alt=""/><br></br>{props.boss.name}</td>
-          <td style={{width: "5%"}}>{Item(props.boss.hard, i)}</td>
-          <td style={{width: "7%"}}>{Item(props.boss.level, i)}</td>
-          <td style={{width: "17%"}}>{Item(props.boss.health, i)}</td>
-          <td style={{width: "7%"}}>{Item(props.boss.defense, i)}%</td>
-          <td style={{width: "9%"}}>{Item(props.boss.ARCAUT, i)}</td>
-          <td style={{width: "5%"}} rowspan={ce}>{Item(props.boss.complete, i)}</td>
-          <td style={{width: "5%"}}>{Item(props.boss.other, i, 1)}</td>
-          <td style={{width: "5%"}}>{Item(props.boss.furniture, i, 2)}</td>
+          <td style={{width: "4.5%"}}>{Item(props.boss.hard, i)}</td>
+          <td style={{width: "6%"}}>{Item(props.boss.level, i)}</td>
+          <td style={{width: "15%"}}>{Item(props.boss.health, i)}</td>
+          <td style={{width: "6%"}}>{Item(props.boss.defense, i)}%</td>
+          <td style={{width: "10%"}}>{Item(props.boss.ARCAUT, i)}</td>
+          <td style={{width: "4.5%"}} rowspan={ce}>{Item(props.boss.complete, i)}</td>
+          <td style={{width: "4.5%"}}>{Item(props.boss.other, i, 1)}</td>
+          <td style={{width: "4.5%"}}>{Item(props.boss.furniture, i, 2)}</td>
           <td style={{width: "10%"}}>{Item(props.boss.equipment, i, 3)}</td>
-          <td style={{width: "4%"}}>{Item(props.boss.essence, i, 4)}</td>
+          <td style={{width: "4.5%"}}>{Item(props.boss.essence, i, 4)}</td>
+          <td style={{width: "4.5%"}}>{Item(props.boss.additional, i, 5)}</td>
           <td>{Item(crystal, i)}</td>
         </tr>
         {newTR(props, l)}
@@ -127,7 +128,8 @@ function BossList() {
         (filter === "SHOW_SP" && item.other !== undefined) ||
         (filter === "SHOW_FT" && item.furniture !== undefined) ||
         (filter === "SHOW_EQ" && item.equipment !== undefined) ||
-        (filter === "SHOW_ES" && item.essence !== undefined)
+        (filter === "SHOW_ES" && item.essence !== undefined) ||
+        (filter === "SHOW_AB" && item.additional !== undefined)
       ) {
         list.push(
           <BossItem key={item.name} boss={{ ...item, idx: index }} />
@@ -145,19 +147,20 @@ function BossList() {
           <thead>
             <tr>
               <th rowspan="2" style={{width: "15%"}}></th>
-              <th rowspan="2" style={{width: "5%"}}>難度</th>
-              <th rowspan="2" style={{width: "7%"}}>等級</th>
-              <th rowspan="2" style={{width: "17%"}}>血量</th>
-              <th rowspan="2" style={{width: "7%"}}>防禦</th>
-              <th rowspan="2" style={{width: "9%"}}>符文</th>
-              <th rowspan="2" style={{width: "5%"}}>通關</th>
-              <th colspan="5">掉落物</th>
+              <th rowspan="2" style={{width: "4.5%"}}>難度</th>
+              <th rowspan="2" style={{width: "6%"}}>等級</th>
+              <th rowspan="2" style={{width: "15%"}}>血量</th>
+              <th rowspan="2" style={{width: "6%"}}>防禦</th>
+              <th rowspan="2" style={{width: "10%"}}>符文</th>
+              <th rowspan="2" style={{width: "4.5%"}}>通關</th>
+              <th colspan="6">掉落物</th>
             </tr>
             <tr>
-              <th style={{width: "5%"}}>特殊</th>
-              <th style={{width: "5%"}}>家具</th>
+              <th style={{width: "4.5%"}}>特殊</th>
+              <th style={{width: "4.5%"}}>家具</th>
               <th style={{width: "10%"}}>重點裝備</th>
-              <th style={{width: "4%"}}>祈禱精髓</th>
+              <th style={{width: "4.5%"}}>祈禱精髓</th>
+              <th style={{width: "4.5%"}}><img src="https://hiteku.github.io/img/ms/icon/可疑的附加方塊.png" alt=""/></th>
               <th><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶.png" alt=""/>{isRB}</th>
             </tr>
           </thead>
@@ -165,7 +168,7 @@ function BossList() {
       {renderItems()}
       </BossItemContainer>
       <div id="src">
-        <sub>資料來源：<a class="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a class="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a></sub>
+        <sub>更新於V255版本．資料來源：<a class="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a class="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a></sub>
       </div><br></br>
     </Wrapper>
   );
