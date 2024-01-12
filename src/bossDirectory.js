@@ -65,7 +65,7 @@ function newTR(props, length) {
         <td>{Item(props.boss.hard, i)}</td>
         <td>{Item(props.boss.level, i)}</td>
         <td>{Item(props.boss.health, i)}</td>
-        <td>{Item(props.boss.defense, i)}%</td>
+        <td>{Item(props.boss.defense, i)}</td>
         <td>{Item(props.boss.ARCAUT, i)}</td>
         {tce[i].includes('λ') ? (<></>) : (<td>{Item(props.boss.complete, i)}</td>)}
         <td>{Item(props.boss.other, i, 1)}</td>
@@ -91,7 +91,7 @@ function BossItem(props) {
           <td style={{width: "4.5%"}}>{Item(props.boss.hard, i)}</td>
           <td style={{width: "6%"}}>{Item(props.boss.level, i)}</td>
           <td style={{width: "15%"}}>{Item(props.boss.health, i)}</td>
-          <td style={{width: "6%"}}>{Item(props.boss.defense, i)}%</td>
+          <td style={{width: "6%"}}>{Item(props.boss.defense, i)}</td>
           <td style={{width: "10%"}}>{Item(props.boss.ARCAUT, i)}</td>
           <td style={{width: "4.5%"}} rowSpan={ce}>{Item(props.boss.complete, i)}</td>
           <td style={{width: "4.5%"}}>{Item(props.boss.other, i, 1)}</td>
@@ -151,7 +151,7 @@ function BossList() {
               <th rowSpan="2" style={{width: "4.5%"}}>難度</th>
               <th rowSpan="2" style={{width: "6%"}}>等級</th>
               <th rowSpan="2" style={{width: "15%"}}>血量</th>
-              <th rowSpan="2" style={{width: "6%"}}>防禦</th>
+              <th rowSpan="2" style={{width: "6%"}}>防禦％</th>
               <th rowSpan="2" style={{width: "10%"}}>符文</th>
               <th rowSpan="2" style={{width: "4.5%"}}>通關</th>
               <th colSpan="6">掉落物</th>
@@ -162,7 +162,7 @@ function BossList() {
               <th style={{width: "10%"}}>重點物品</th>
               {/* <th style={{width: "4.5%"}}>祈禱精髓</th> */}
               <th style={{width: "4.5%"}}><img src="https://hiteku.github.io/img/ms/icon/可疑的附加方塊.png" alt=""/></th>
-              <th style={{width: "4.5%"}}><img src="https://hiteku.github.io/img/ms/icon/艾爾達氣息.png" alt=""/></th>
+              <th style={{width: "4.5%"}}><img src="https://hiteku.github.io/img/ms/icon/靈魂艾爾達氣息.png" alt=""/></th>
               <th><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶.png" alt=""/>{isRB}</th>
             </tr>
           </thead>
