@@ -169,8 +169,21 @@ function BossList() {
         </table>
       {renderItems()}
       </BossItemContainer>
-      <div id="src">
-        <sub>更新於V255版本．資料來源：<a className="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a className="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a></sub>
+      <div className='src'>
+        <sub>
+          <a href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6444311" target="_blank" rel="noopener noreferrer">
+            <img
+              src={`https://hiteku.github.io/img/-/bahamut.png`}
+              alt="imgBahamut"
+            />
+          {/* </a>&nbsp;
+          <a href="https://www.youtube.com/Hiteku" target="_blank" rel="noopener noreferrer">
+            <img
+              src={`https://hiteku.github.io/img/-/youtube.png`}
+              alt="imgYoutube"
+            /> */}
+          </a> © Hiteku 更新於V259版本・資料來源：<a className="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a className="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a>
+        </sub>
       </div><br></br>
     </Wrapper>
   );

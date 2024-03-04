@@ -23,11 +23,13 @@ table td {
 }
 
 .src {
+  text-align: center;
   text-decoration: none;
   color: #ddd;
 }
 
-#src {
-  text-align: center;
-  color: #ddd;
+.src img{
+  max-width: 15px;
+  margin-bottom: -2px;
+  border-radius: 9%;
 }

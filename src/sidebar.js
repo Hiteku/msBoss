@@ -50,13 +50,26 @@ const Sidebar = () => {
                     <a href="https://hiteku.github.io/msBoss/">BOSS篩選器</a>
                     <img src={"https://hiteku.github.io/img/ms/icon/furniture/殺人鯨兔子娃娃抱枕.png"} alt="" style={{ width: '23px', margin: '0 0 0 2px' }} />
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="https://hiteku.github.io/msClip/">裝備自動裁剪</a>
                     <img src={"https://hiteku.github.io/img/ms/icon/白金神奇剪刀.png"} alt="" style={{ width: '22px', margin: '0 0 0 2.5px' }} />
+                  </li> */}
+                  <li>
+                    <a href="https://hiteku.github.io/msRole/">職業列表：傳授戰地、能力資訊</a>
+                    <img src={"https://hiteku.github.io/img/ms/icon/咖凌萌獸.png"} alt="" style={{ width: '18px', margin: '0 0 0 2.5px' }} />
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h4>神魔之塔</h4>
+                <ul>
+                  <li>
+                    <a href="https://hiteku.github.io/tosCrafts/">龍刻武裝搜尋器</a>
+                    <img src={"https://hiteku.github.io/img/tos/crafts/icon/runeEquipment_108.png"} alt="" style={{ width: '25px' }} />
                   </li>
                   <li>
-                    <a href="https://hiteku.github.io/msRole/">職業列表：傳授戰地、萌獸終傷</a>
-                    <img src={"https://hiteku.github.io/img/ms/icon/抓狂的家兔萌獸.png"} alt="" style={{ width: '18px', margin: '0 0 0 2.5px' }} />
+                    <a href="https://hiteku.github.io/tosPath/">固版轉法查詢器</a>
+                    <img src={"https://hiteku.github.io/img/tos/cards/icon/10617i.png"} alt="" style={{ width: '22px', margin: '0 0 0 2px' }} />
                   </li>
                 </ul>
               </li>
