@@ -523,7 +523,7 @@ const bosses = [
     complete: '',
     other: '桃樂絲傷害字型',
     furniture: '琉德的劍',
-    focus: '變質的愛麗西亞的長杖, 琉德的劍, 光芒追求者, 水瓶座冠',
+    focus: '變質的愛麗西亞的長杖,琉德的劍,光芒追求者,水瓶座冠',
     crystallization: '',
     crystallizationRB: '',
   },

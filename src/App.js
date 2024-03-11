@@ -12,46 +12,47 @@ const Wrapper = styled.div`
 `;
 
 const BossItemContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 30px 0;
+  padding: 2em;
   border-radius: 0 11px 11px 11px;
   background-color: #444;
 `;
 
 function Item(item, index, type) {
-  let t, m, stage, result = []
-  if (item === undefined) return ''
-  item = item.replaceAll('λ', '')
-  index = (index === undefined) ? 0 : index
-  t = item.split('|')
-  if (type === 4) // eslint-disable-next-line
+  let t, m, stage, result = [];
+  if (item === undefined) return '';
+
+  item = item.replaceAll('λ', '');
+  index = (index === undefined) ? 0 : index;
+  t = item.split('|');
+
+  if (t[index] === '')  return '';
+  else if (type === 4) // eslint-disable-next-line
     result = <><img src={path + "icon/" + "楓幣減免.png"}/><img src={path + "icon/" + "固定潛能.png"}/></>;
   else {
-    if (type === 2) result = <img src={path + "icon/furniture/" + t[index] + ".png"} alt=""/>
+    if (type === 2) result = <img src={path + "icon/furniture/" + t[index] + ".png"} alt="" />;
     else if (type < 4) {
-      m = t[index].split(',')
-      for (let j = 0; j < m.length; j++) result.push(<img src={path + "icon/" + m[j] + ".png"} alt=""/>)
+      m = t[index].split(',');
+      for (let j = 0; j < m.length; j++) {
+        result.push(<img key={j} src={path + "icon/" + m[j] + ".png"} alt="" />);
+      }
     }
     else {
       if (t[index].includes('>')) {
         if (t[index].includes('A')) {
-          result.push(t[index].slice(0, 4) + '\n')
-          t[index] = t[index].slice(4)
+          result.push(t[index].slice(0, 4) + '\n');
+          t[index] = t[index].slice(4);
         }
-        stage = t[index].split('>')
-        let s = stage.length
-        if (s > 0) result.push('⑴ ' + stage[0])
-        if (s > 1) result.push('\n⑵ ' + stage[1])
-        if (s > 2) result.push('\n⑶ ' + stage[2])
-        if (s > 3) result.push('\n⑷ ' + stage[3])
+        stage = t[index].split('>');
+        let s = stage.length;
+        if (s > 0) result.push('⑴ ' + stage[0]);
+        if (s > 1) result.push('\n⑵ ' + stage[1]);
+        if (s > 2) result.push('\n⑶ ' + stage[2]);
+        if (s > 3) result.push('\n⑷ ' + stage[3]);
       }
-      else result = t[index]
+      else result = t[index];
     }
   }
-  return result
+  return result;
 }
 
 function newTR(props, length) {
@@ -61,7 +62,7 @@ function newTR(props, length) {
   if (props.boss.hard.includes('創世')) { e--; }
   for (let i = s; i < e; i++) {
     lists.push(
-      <tr>
+      <tr key={i}>
         <td>{Item(props.boss.hard, i)}</td>
         <td>{Item(props.boss.level, i)}</td>
         <td>{Item(props.boss.health, i)}</td>
@@ -113,7 +114,7 @@ function BossList() {
     setCheckboxValue(newValue);
   };
 
-  isRB = (checkboxValue) ? 'ReBoot' : ''
+  isRB = (checkboxValue) ? 'ReBoot' : '';
 
   const bosses = useSelector((store) => store.bossesReducer);
   const filter = useSelector((store) => store.filterReducer);
