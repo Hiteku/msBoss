@@ -56,52 +56,36 @@ function Item(item, index, type) {
 }
 
 function newTR(props, length) {
-  let lists = [], s = 1, e = length, tce = props.boss.complete.split('|')
+  let lists = [], tce = props.boss.complete.split('|'), isLastLambda = true
   let crystal = (isRB) ? props.boss.crystallizationRB : props.boss.crystallization
-  if (props.boss.hard.includes('劇情')) { s++; e++; }
-  if (props.boss.hard.includes('創世')) { e--; }
-  for (let i = s; i < e; i++) {
+  for (let i = 0; i < length; i++) {
+    if (Item(props.boss.hard, i).includes('任務')) continue;
+    var ace = isLastLambda ? props.boss.complete.split('λ').length : 1
     lists.push(
       <tr key={i}>
-        <td>{Item(props.boss.hard, i)}</td>
-        <td>{Item(props.boss.level, i)}</td>
-        <td>{Item(props.boss.health, i)}</td>
-        <td>{Item(props.boss.defense, i)}</td>
-        <td>{Item(props.boss.ARCAUT, i)}</td>
-        {tce[i].includes('λ') ? (<></>) : (<td>{Item(props.boss.complete, i)}</td>)}
-        <td>{Item(props.boss.other, i, 1)}</td>
-        <td>{Item(props.boss.furniture, i, 2)}</td>
-        <td>{Item(props.boss.focus, i, 3)}</td>
-        <td>{Item(props.boss.additional, i, 5)}</td>
-        <td>{Item(props.boss.ELTA, i, 5)}</td>
-        <td>{Item(crystal, i)}</td>
-      </tr>)
-  }
-  return lists
-}
-
-function BossItem(props) {
-  let i = 0, l = props.boss.hard.split('|').length, ce = props.boss.complete.split('λ').length
-  let crystal = (isRB) ? props.boss.crystallizationRB : props.boss.crystallization
-  if (props.boss.hard.includes('劇情')) { i++; l--; }
-  return (
-    <tbody>
-      <tr>
-        <td style={{width: "15%"}} rowSpan={l}><img style={{width: "170px"}} src={path + "boss/" + props.boss.img + ".png"} alt=""/><br></br>{props.boss.name}</td>
+        {i === length-1 && <td style={{width: "15%"}} rowSpan={i+1}><img style={{width: "170px"}} src={path + "boss/" + props.boss.img + ".png"} alt=""/><br></br>{props.boss.name}</td>}
         <td style={{width: "4.5%"}}>{Item(props.boss.hard, i)}</td>
         <td style={{width: "6%"}}>{Item(props.boss.level, i)}</td>
         <td style={{width: "15%"}}>{Item(props.boss.health, i)}</td>
         <td style={{width: "6%"}}>{Item(props.boss.defense, i)}</td>
         <td style={{width: "10%"}}>{Item(props.boss.ARCAUT, i)}</td>
-        <td style={{width: "4.5%"}} rowSpan={ce}>{Item(props.boss.complete, i)}</td>
+        {tce[i].includes('λ') ? (<></>) : (<td style={{width: "4.5%"}} rowSpan={ace}>{Item(props.boss.complete, i)}</td>)}
         <td style={{width: "4.5%"}}>{Item(props.boss.other, i, 1)}</td>
         <td style={{width: "4.5%"}}>{Item(props.boss.furniture, i, 2)}</td>
         <td style={{width: "10%"}}>{Item(props.boss.focus, i, 3)}</td>
         <td style={{width: "4.5%"}}>{Item(props.boss.additional, i, 5)}</td>
         <td style={{width: "4.5%"}}>{Item(props.boss.ELTA, i, 5)}</td>
         <td>{Item(crystal, i)}</td>
-      </tr>
-      {newTR(props, l)}
+      </tr>)
+    isLastLambda = tce[i].includes('λ')
+  }
+  return lists.reverse()
+}
+
+function BossItem(props) {
+  return (
+    <tbody>
+      {newTR(props, props.boss.hard.split('|').length)}
     </tbody>
   );
 }
