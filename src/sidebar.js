@@ -37,18 +37,18 @@ const Sidebar = () => {
         )}
         <div className="content">
           <div className="other-tools">
-            <h2>Other Tool</h2>
+            <h2>Other Tools</h2>
             <ul>
               <li>
                 <h4>新楓之谷</h4>
                 <ul>
                   <li>
-                    <a href="https://hiteku.github.io/msScroll/">裝備卷軸計算機</a>
+                    <a href="https://hiteku.github.io/msScroll/">裝備卷軸計算</a>
                     <img src={"https://hiteku.github.io/img/ms/icon/救世卷軸.png"} alt="" style={{ width: '27px' }} />
                   </li>
                   <li>
-                    <a href="https://hiteku.github.io/msBoss/">BOSS篩選器</a>
-                    <img src={"https://hiteku.github.io/img/ms/icon/furniture/殺人鯨兔子娃娃抱枕.png"} alt="" style={{ width: '23px', margin: '0 0 0 2px' }} />
+                    <a href="https://hiteku.github.io/msBoss/">BOSS篩選</a>
+                    <img src={"https://hiteku.github.io/img/ms/icon/furniture/殺人鯨兔子娃娃抱枕.png"} alt="" style={{ width: '27px', margin: '0 0 0 2px' }} />
                   </li>
                   {/* <li>
                     <a href="https://hiteku.github.io/msClip/">裝備自動裁剪</a>
@@ -56,7 +56,7 @@ const Sidebar = () => {
                   </li> */}
                   <li>
                     <a href="https://hiteku.github.io/msRole/">職業列表：傳授戰地、能力資訊</a>
-                    <img src={"https://hiteku.github.io/img/ms/icon/咖凌萌獸.png"} alt="" style={{ width: '18px', margin: '0 0 0 2.5px' }} />
+                    <img src={"https://hiteku.github.io/img/ms/icon/殺人鯨(軍團長)萌獸.png"} alt="" style={{ width: '21px', margin: '0 0 0 2.5px' }} />
                   </li>
                 </ul>
               </li>
@@ -64,11 +64,11 @@ const Sidebar = () => {
                 <h4>神魔之塔</h4>
                 <ul>
                   <li>
-                    <a href="https://hiteku.github.io/tosCrafts/">龍刻武裝搜尋器</a>
+                    <a href="https://hiteku.github.io/tosCrafts/">龍刻武裝搜尋</a>
                     <img src={"https://hiteku.github.io/img/tos/crafts/icon/runeEquipment_108.png"} alt="" style={{ width: '25px' }} />
                   </li>
                   <li>
-                    <a href="https://hiteku.github.io/tosPath/">固版轉法查詢器</a>
+                    <a href="https://hiteku.github.io/tosPath/">固版轉法查詢</a>
                     <img src={"https://hiteku.github.io/img/tos/cards/icon/10617i.png"} alt="" style={{ width: '22px', margin: '0 0 0 2px' }} />
                   </li>
                 </ul>
