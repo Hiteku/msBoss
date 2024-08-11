@@ -498,6 +498,19 @@ const bosses = [
     crystallizationRB: '',
   },
   {
+    img: 'Bigfoot',
+    name: '終極怪物公園',
+    hard: '副本',
+    level: '260',
+    health: '15兆',
+    defense: '300',
+    timeout: '20',
+    death: '1',
+    complete: '每日\n1次',
+    crystallization: '',
+    crystallizationRB: '',
+  },
+  /*{
     img: 'Urus',
     name: '烏勒斯',
     hard: '普通',
@@ -510,7 +523,7 @@ const bosses = [
     furniture: '烏勒斯生命的樹木盆栽',
     crystallization: '',
     crystallizationRB: '',
-  },
+  },*/
   {
     img: 'Dorothy',
     name: '桃樂絲',

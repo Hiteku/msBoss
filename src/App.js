@@ -63,7 +63,9 @@ function newTR(props, length) {
     var ace = isLastLambda ? props.boss.complete.split('λ').length : 1
     lists.push(
       <tr key={i}>
-        {i === length-1 && <td style={{width: "15%"}} rowSpan={i+1}><img style={{width: "170px"}} src={path + "boss/" + props.boss.img + ".png"} alt=""/><br></br>{props.boss.name}</td>}
+        {(props.boss.img === 'Dyle' || props.boss.img === 'Seruf' || props.boss.img === 'Tengu' || props.boss.img === 'Dorothy') ?
+        i === length-1 && <td rowSpan={i+1}>{props.boss.name}</td> :
+        i === length-1 && <td style={{width: "15%"}} rowSpan={i+1}><img style={{width: "170px"}} src={path + "boss/" + props.boss.img + ".png"} alt=""/><br/>{props.boss.name}</td> }
         <td style={{width: "4.5%"}}>{Item(props.boss.hard, i)}</td>
         <td style={{width: "6%"}}>{Item(props.boss.level, i)}</td>
         <td style={{width: "15%"}}>{Item(props.boss.health, i)}</td>
@@ -156,16 +158,16 @@ function BossList() {
         <sub>
           <a href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6444311" target="_blank" rel="noopener noreferrer">
             <img
-              src={`https://hiteku.fly.dev/static/assets/logo/bahamut.png`}
+              src={`https://hiteku.vercel.app/static/assets/icon/bahamut.png`}
               alt="imgBahamut"
             />
           {/* </a>&nbsp;
           <a href="https://www.youtube.com/Hiteku" target="_blank" rel="noopener noreferrer">
             <img
-              src={`https://hiteku.fly.dev/static/assets/logo/youtube.png`}
+              src={`https://hiteku.vercel.app/static/assets/icon/youtube.png`}
               alt="imgYoutube"
             /> */}
-          </a> © Hiteku 更新於V259版本・資料來源：<a className="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a className="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a>
+          </a> © Hiteku 更新於V263版本・資料來源：<a className="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a className="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a>
         </sub>
       </div><br></br>
       <ScrollToTopButton></ScrollToTopButton>
