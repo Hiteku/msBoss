@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/msBoss/static/css/main.000ea983.css",
-    "main.js": "/msBoss/static/js/main.73f64bbe.js",
+    "main.js": "/msBoss/static/js/main.f32415ee.js",
     "index.html": "/msBoss/index.html",
     "main.000ea983.css.map": "/msBoss/static/css/main.000ea983.css.map",
-    "main.73f64bbe.js.map": "/msBoss/static/js/main.73f64bbe.js.map"
+    "main.f32415ee.js.map": "/msBoss/static/js/main.f32415ee.js.map"
   },
   "entrypoints": [
     "static/css/main.000ea983.css",
-    "static/js/main.73f64bbe.js"
+    "static/js/main.f32415ee.js"
   ]
 }
