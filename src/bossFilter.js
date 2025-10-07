@@ -18,6 +18,7 @@ const Button = styled.div`
   cursor: pointer;
 `;
 
+// eslint-disable-next-line
 const CheckBoxWrapper = styled.div`
   position: absolute;
   right: 4.6%;
@@ -52,6 +53,7 @@ const CheckBoxLabel = styled.label`
   }
 `;
 
+// eslint-disable-next-line
 const CheckBox = styled.input`
   opacity: 0;
   z-index: 1;
@@ -82,12 +84,12 @@ function setFilter(filter){
 function Filter(props) {
   const dispatch = useDispatch();
 
-  // const [checkboxValue, onCheckboxChange] = useState(false);
+  /* const [checkboxValue, onCheckboxChange] = useState(false);
 
   const handleChange = (event) => {
     const newValue = event.target.checked;
     props.onCheckboxChange(newValue);
-  }
+  }*/
 
   return (
     <ButtonContainer>
@@ -116,21 +118,21 @@ function Filter(props) {
         onClick={() => dispatch(setFilter("SHOW_ES"))}
       >祈禱精髓
       </Button>
-      <Button
+      {/* <Button
         active={props.selected === "SHOW_AB"}
         onClick={() => dispatch(setFilter("SHOW_AB"))}
       >附加
-      </Button>
+      </Button> */}
       <Button
         active={props.selected === "SHOW_ELTA"}
         onClick={() => dispatch(setFilter("SHOW_ELTA"))}
       >艾爾達
       </Button>
-      <CheckBoxWrapper>
+      {/* <CheckBoxWrapper>
         <CheckBox id="checkbox" type="checkbox"
           checked={props.checkboxValue} onChange={handleChange}/>
         <CheckBoxLabel htmlFor="checkbox"/>
-      </CheckBoxWrapper>
+      </CheckBoxWrapper> */}
     </ButtonContainer>
   );
 }

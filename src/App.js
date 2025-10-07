@@ -29,12 +29,22 @@ function Item(item, index, type) {
   else if (type === 4) // eslint-disable-next-line
     result = <><img src={path + "icon/" + "楓幣減免.png"}/><img src={path + "icon/" + "固定潛能.png"}/></>;
   else {
-    if (type === 2) result = <img src={path + "icon/furniture/" + t[index] + ".png"} alt="" />;
-    else if (type < 4) {
+    if (type === 2) {
+      const imgName = t[index];
+      result = (
+        <div className="tooltip-container">
+          <img src={path + "icon/furnishing/" + imgName + ".png"} alt="" />
+          <img className="tooltip-image" src={path + "detail/" + imgName + ".png"} alt="" />
+        </div>
+      );
+    } else if (type < 4) {
       m = t[index].split(',');
-      for (let j = 0; j < m.length; j++) {
-        result.push(<img key={j} src={path + "icon/" + m[j] + ".png"} alt="" />);
-      }
+      result = m.map((name, j) => (
+        <div key={j} className="tooltip-container">
+          <img src={path + "icon/" + name + ".png"} alt="" />
+          <img className="tooltip-image" src={path + "detail/" + name + ".png"} alt="" />
+        </div>
+      ));
     }
     else {
       if (t[index].includes('>')) {
@@ -58,6 +68,7 @@ function Item(item, index, type) {
 function newTR(props, length) {
   let lists = [], tce = props.boss.complete.split('|'), isLastLambda = true
   let crystal = (isRB) ? props.boss.crystallizationRB : props.boss.crystallization
+  crystal = props.boss.crystallization
   for (let i = 0; i < length; i++) {
     if (Item(props.boss.hard, i).includes('任務')) continue;
     var ace = isLastLambda ? props.boss.complete.split('λ').length : 1
@@ -73,9 +84,9 @@ function newTR(props, length) {
         <td style={{width: "10%"}}>{Item(props.boss.ARCAUT, i)}</td>
         {tce[i].includes('λ') ? (<></>) : (<td style={{width: "4.5%"}} rowSpan={ace}>{Item(props.boss.complete, i)}</td>)}
         <td style={{width: "4.5%"}}>{Item(props.boss.other, i, 1)}</td>
-        <td style={{width: "4.5%"}}>{Item(props.boss.furniture, i, 2)}</td>
+        <td style={{width: "4.5%"}}>{Item(props.boss.furnishing, i, 2)}</td>
         <td style={{width: "10%"}}>{Item(props.boss.focus, i, 3)}</td>
-        <td style={{width: "4.5%"}}>{Item(props.boss.additional, i, 5)}</td>
+        {/* <td style={{width: "4.5%"}}>{Item(props.boss.additional, i, 5)}</td> */}
         <td style={{width: "4.5%"}}>{Item(props.boss.ELTA, i, 5)}</td>
         <td>{Item(crystal, i)}</td>
       </tr>)
@@ -94,13 +105,14 @@ function BossItem(props) {
 
 function BossList() {
 
-  const [checkboxValue, setCheckboxValue] = useState(false);
+  /* const [checkboxValue, setCheckboxValue] = useState(false);
 
   const handleChange = (newValue) => {
     setCheckboxValue(newValue);
-  };
+  }; */
 
-  isRB = (checkboxValue) ? 'ReBoot' : '';
+  // isRB = (checkboxValue) ? 'ReBoot' : '';
+  isRB = ''
 
   const bosses = useSelector((store) => store.bossesReducer);
   const filter = useSelector((store) => store.filterReducer);
@@ -111,7 +123,7 @@ function BossList() {
       if (
         (filter === "SHOW_ALL") ||
         (filter === "SHOW_SP" && item.other !== undefined) ||
-        (filter === "SHOW_FT" && item.furniture !== undefined) ||
+        (filter === "SHOW_FT" && item.furnishing !== undefined) ||
         // (filter === "SHOW_EQ" && item.focus !== undefined) ||
         (filter === "SHOW_ES" && item.focus !== undefined && item.focus.includes('固定')) ||
         (filter === "SHOW_AB" && item.additional !== undefined) ||
@@ -127,7 +139,8 @@ function BossList() {
 
   return (
     <Wrapper>
-      <Filter selected={filter} checkboxValue={checkboxValue} onCheckboxChange={handleChange} />
+      {/* <Filter selected={filter} checkboxValue={checkboxValue} onCheckboxChange={handleChange} /> */}
+      <Filter selected={filter}/>
       <BossItemContainer>
         <table>
           <thead style={{ position: 'sticky', top: 0, zIndex: 1, background: '#333' }}>
@@ -139,16 +152,16 @@ function BossList() {
               <th rowSpan="2" style={{width: "6%"}}>防禦％</th>
               <th rowSpan="2" style={{width: "10%"}}>符文</th>
               <th rowSpan="2" style={{width: "4.5%"}}>通關</th>
-              <th colSpan="6">掉落物</th>
+              <th colSpan="5">掉落物</th>
             </tr>
             <tr>
               <th style={{width: "4.5%"}}>特殊</th>
               <th style={{width: "4.5%"}}>家具</th>
               <th style={{width: "10%"}}>重點物品</th>
-              {/* <th style={{width: "4.5%"}}>祈禱精髓</th> */}
-              <th style={{width: "4.5%"}}><img src="https://hiteku.github.io/img/ms/icon/可疑的附加方塊.png" alt=""/></th>
+              {/* <th style={{width: "4.5%"}}>祈禱精髓</th>
+              <th style={{width: "4.5%"}}><img src="https://hiteku.github.io/img/ms/icon/可疑的附加方塊.png" alt=""/></th> */}
               <th style={{width: "4.5%"}}><img src="https://hiteku.github.io/img/ms/icon/靈魂艾爾達氣息.png" alt=""/></th>
-              <th><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶.png" alt=""/>{isRB}</th>
+              <th><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶_每日.png" alt=""/><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶_每週.png" alt=""/><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶_每月.png" alt=""/>{isRB}</th>
             </tr>
           </thead>
           {renderItems()}
@@ -167,7 +180,7 @@ function BossList() {
               src={`https://hiteku.vercel.app/static/assets/icon/youtube.png`}
               alt="imgYoutube"
             /> */}
-          </a> © Hiteku 更新於V263版本・資料來源：<a className="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a className="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a>
+          </a> © Hiteku 更新於V273版本・資料來源：<a className="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a className="src" href="https://home.gamer.com.tw/Joker2008717" target="_blank" rel="noreferrer">Joker2008717</a>、<a className="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a>
         </sub>
       </div><br></br>
       <ScrollToTopButton></ScrollToTopButton>

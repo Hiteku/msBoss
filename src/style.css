@@ -32,3 +32,21 @@ table td {
   margin-bottom: -2px;
   border-radius: 9%;
 }
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-image {
+  display: none;
+  position: absolute;
+  top: -10px;
+  left: 100%;
+  z-index: 10;
+  width: 200px;
+}
+
+.tooltip-container:hover .tooltip-image {
+  display: block;
+}

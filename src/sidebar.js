@@ -48,7 +48,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <a href="https://hiteku.github.io/msBoss/">BOSS篩選</a>
-                    <img src={"https://hiteku.github.io/img/ms/icon/furniture/殺人鯨兔子娃娃抱枕.png"} alt="" style={{ width: '27px', margin: '0 0 0 2px' }} />
+                    <img src={"https://hiteku.github.io/img/ms/icon/furnishing/殺人鯨兔子娃娃抱枕.png"} alt="" style={{ width: '27px', margin: '0 0 0 2px' }} />
                   </li>
                   {/* <li>
                     <a href="https://hiteku.github.io/msClip/">裝備自動裁剪</a>
@@ -65,7 +65,7 @@ const Sidebar = () => {
                 <ul>
                   <li>
                     <a href="https://hiteku.github.io/tosCrafts/">龍刻武裝搜尋</a>
-                    <img src={"https://hiteku.github.io/img/tos/crafts/icon/runeEquipment_108.png"} alt="" style={{ width: '25px' }} />
+                    <img src={"https://hiteku.github.io/img/tos/crafts/-/runeEquipment_108.png"} alt="" style={{ width: '25px' }} />
                   </li>
                   <li>
                     <a href="https://hiteku.github.io/tosPath/">固版轉法查詢</a>
