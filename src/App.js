@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import Filter from "./bossFilter";
 
-var path = 'https://hiteku.github.io/img/ms/', isRB
+var path = 'https://hiteku.github.io/img/ms/'
 // path = '../img/ms'
 
 const Wrapper = styled.div`
@@ -67,7 +67,7 @@ function Item(item, index, type) {
 
 function newTR(props, length) {
   let lists = [], tce = props.boss.complete.split('|'), isLastLambda = true
-  let crystal = (isRB) ? props.boss.crystallizationRB : props.boss.crystallization
+  let crystal = props.boss.crystallization
   crystal = props.boss.crystallization
   for (let i = 0; i < length; i++) {
     if (Item(props.boss.hard, i).includes('任務')) continue;
@@ -82,13 +82,12 @@ function newTR(props, length) {
         <td style={{width: "15%"}}>{Item(props.boss.health, i)}</td>
         <td style={{width: "6%"}}>{Item(props.boss.defense, i)}</td>
         <td style={{width: "10%"}}>{Item(props.boss.ARCAUT, i)}</td>
-        {tce[i].includes('λ') ? (<></>) : (<td style={{width: "4.5%"}} rowSpan={ace}>{Item(props.boss.complete, i)}</td>)}
+        <td style={{width: "10%"}}>{Item(props.boss.focus, i, 3)}</td>
         <td style={{width: "4.5%"}}>{Item(props.boss.other, i, 1)}</td>
         <td style={{width: "4.5%"}}>{Item(props.boss.furnishing, i, 2)}</td>
-        <td style={{width: "10%"}}>{Item(props.boss.focus, i, 3)}</td>
-        {/* <td style={{width: "4.5%"}}>{Item(props.boss.additional, i, 5)}</td> */}
         <td style={{width: "4.5%"}}>{Item(props.boss.ELTA, i, 5)}</td>
         <td>{Item(crystal, i)}</td>
+        {tce[i].includes('λ') ? (<></>) : (<td style={{width: "4.5%"}} rowSpan={ace}>{Item(props.boss.complete, i)}</td>)}
       </tr>)
     isLastLambda = tce[i].includes('λ')
   }
@@ -111,9 +110,6 @@ function BossList() {
     setCheckboxValue(newValue);
   }; */
 
-  // isRB = (checkboxValue) ? 'ReBoot' : '';
-  isRB = ''
-
   const bosses = useSelector((store) => store.bossesReducer);
   const filter = useSelector((store) => store.filterReducer);
 
@@ -124,9 +120,7 @@ function BossList() {
         (filter === "SHOW_ALL") ||
         (filter === "SHOW_SP" && item.other !== undefined) ||
         (filter === "SHOW_FT" && item.furnishing !== undefined) ||
-        // (filter === "SHOW_EQ" && item.focus !== undefined) ||
-        (filter === "SHOW_ES" && item.focus !== undefined && item.focus.includes('固定')) ||
-        (filter === "SHOW_AB" && item.additional !== undefined) ||
+        // (filter === "SHOW_ES" && item.focus !== undefined && item.focus.includes('固定')) ||
         (filter === "SHOW_ELTA" && item.ELTA !== undefined)
       ) {
         list.push(
@@ -151,17 +145,17 @@ function BossList() {
               <th rowSpan="2" style={{width: "15%"}}>血量</th>
               <th rowSpan="2" style={{width: "6%"}}>防禦％</th>
               <th rowSpan="2" style={{width: "10%"}}>符文</th>
-              <th rowSpan="2" style={{width: "4.5%"}}>通關</th>
               <th colSpan="5">掉落物</th>
+              <th rowSpan="2" style={{width: "4.5%"}}>通關</th>
             </tr>
             <tr>
+              <th style={{width: "10%"}}>重點物品</th>
               <th style={{width: "4.5%"}}>特殊</th>
               <th style={{width: "4.5%"}}>家具</th>
-              <th style={{width: "10%"}}>重點物品</th>
               {/* <th style={{width: "4.5%"}}>祈禱精髓</th>
               <th style={{width: "4.5%"}}><img src="https://hiteku.github.io/img/ms/icon/可疑的附加方塊.png" alt=""/></th> */}
               <th style={{width: "4.5%"}}><img src="https://hiteku.github.io/img/ms/icon/靈魂艾爾達氣息.png" alt=""/></th>
-              <th><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶_每日.png" alt=""/><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶_每週.png" alt=""/><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶_每月.png" alt=""/>{isRB}</th>
+              <th><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶_每日.png" alt=""/><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶_每週.png" alt=""/><img src="https://hiteku.github.io/img/ms/icon/強烈的力量結晶_每月.png" alt=""/></th>
             </tr>
           </thead>
           {renderItems()}
@@ -180,7 +174,7 @@ function BossList() {
               src={`https://hiteku.vercel.app/static/assets/icon/youtube.png`}
               alt="imgYoutube"
             /> */}
-          </a> © Hiteku 更新於V273版本・資料來源：<a className="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a className="src" href="https://home.gamer.com.tw/Joker2008717" target="_blank" rel="noreferrer">Joker2008717</a>、<a className="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a>
+          </a> © Hiteku 更新於V281版本・資料來源：<a className="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a className="src" href="https://home.gamer.com.tw/Joker2008717" target="_blank" rel="noreferrer">Joker2008717</a>、<a className="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a>
         </sub>
       </div><br></br>
       <ScrollToTopButton></ScrollToTopButton>

@@ -109,19 +109,9 @@ function Filter(props) {
       >家具
       </Button>
       {/* <Button
-        active={props.selected === "SHOW_EQ"}
-        onClick={() => dispatch(setFilter("SHOW_EQ"))}
-      >重點裝備
-      </Button> */}
-      <Button
         active={props.selected === "SHOW_ES"}
         onClick={() => dispatch(setFilter("SHOW_ES"))}
       >祈禱精髓
-      </Button>
-      {/* <Button
-        active={props.selected === "SHOW_AB"}
-        onClick={() => dispatch(setFilter("SHOW_AB"))}
-      >附加
       </Button> */}
       <Button
         active={props.selected === "SHOW_ELTA"}

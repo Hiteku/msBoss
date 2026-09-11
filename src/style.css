@@ -44,7 +44,6 @@ table td {
   top: -10px;
   left: 100%;
   z-index: 10;
-  width: 200px;
 }
 
 .tooltip-container:hover .tooltip-image {
