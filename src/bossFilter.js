@@ -83,13 +83,10 @@ function setFilter(filter){
 
 function Filter(props) {
   const dispatch = useDispatch();
-
-  /* const [checkboxValue, onCheckboxChange] = useState(false);
-
   const handleChange = (event) => {
     const newValue = event.target.checked;
     props.onCheckboxChange(newValue);
-  }*/
+  }
 
   return (
     <ButtonContainer>
@@ -101,7 +98,7 @@ function Filter(props) {
       <Button
         active={props.selected === "SHOW_SP"}
         onClick={() => dispatch(setFilter("SHOW_SP"))}
-      >特殊
+      >強化
       </Button>
       <Button
         active={props.selected === "SHOW_FT"}
@@ -118,11 +115,11 @@ function Filter(props) {
         onClick={() => dispatch(setFilter("SHOW_ELTA"))}
       >艾爾達
       </Button>
-      {/* <CheckBoxWrapper>
+      <CheckBoxWrapper>
         <CheckBox id="checkbox" type="checkbox"
           checked={props.checkboxValue} onChange={handleChange}/>
         <CheckBoxLabel htmlFor="checkbox"/>
-      </CheckBoxWrapper> */}
+      </CheckBoxWrapper>
     </ButtonContainer>
   );
 }
