@@ -54,12 +54,24 @@ const HardTag = styled.span`
   }
 `;
 
-const DetailIcon = ({ name, folder = '' }) => (
-  <div className="tooltip-container">
-    <img src={path + `icon/${folder}${name}.png`} style={{ verticalAlign: 'middle' }} alt="" />
-    <img className="tooltip-image" src={path + `detail/${folder}${name}.png`} alt="" />
-  </div>
-);
+const DetailIcon = ({ name, folder = '' }) => {
+  const isDateItem = ['殺人鯨兔子娃娃抱枕', '聖劍壁掛裝飾', '咖凌頂篷床'].includes(name);
+  const content = (
+    <div className="tooltip-container">
+      <img
+        src={path + `icon/${folder}${name}.png`}
+        style={{ verticalAlign: 'middle' }}
+        alt=""
+      />
+      <img
+        className="tooltip-image"
+        src={path + `detail/${folder}${name}.png`}
+        alt=""
+      />
+    </div>
+  );
+  return isDateItem ? (<a href="/msBoss/?page=Date">{content}</a>) : (content);
+};
 
 function Item(item, index, type) {
   let t, m, stage, result = [];
@@ -231,7 +243,7 @@ function BossList() {
               src={`https://hiteku.vercel.app/static/assets/icon/youtube.png`}
               alt="imgYoutube"
             />
-          </a> © Hiteku 更新於V281版本・資料來源：<a className="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a className="src" href="https://home.gamer.com.tw/Joker2008717" target="_blank" rel="noreferrer">Joker2008717</a>、<a className="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a>
+          </a> © Hiteku 更新於V281版本・資料來源：<a className="src" href="https://home.gamer.com.tw/Cieuakis" target="_blank" rel="noreferrer">ᴍʏᴜ ͜ꕤ̷⋆</a>、<a className="src" href="https://forum.gamer.com.tw/Co.php?bsn=7650&sn=6437368" target="_blank" rel="noreferrer">新楓之谷BOSS全資訊整理</a>
         </sub>
       </div><br></br>
       <ScrollToTopButton></ScrollToTopButton>

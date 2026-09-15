@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
 import BossList from "./App";
+import Date from "./Date";
 import bossesReducer from './bossData';
 import "./style.css";
 import Sidebar from './sidebar';
@@ -44,8 +45,15 @@ const Title = styled.h1`
   color: #ddd;
 `;
 
+const isDatePage = new URLSearchParams(window.location.search).get('page') === 'Date';
+
 ReactDOM.render(
   <React.StrictMode>
+  {isDatePage ? (
+    <Wrapper>
+      <Date />
+    </Wrapper>
+  ) : (
     <Provider store={store}>
       <Wrapper>
         <Sidebar />
@@ -53,6 +61,7 @@ ReactDOM.render(
         <BossList />
       </Wrapper>
     </Provider>
+  )}
   </React.StrictMode>,
   document.getElementById("root")
 );
