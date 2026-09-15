@@ -49,7 +49,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Wrapper>
         <Sidebar />
-        <Title>楓之谷BOSS篩選器</Title>
+        <Title>新楓之谷BOSS篩選器</Title>
         <BossList />
       </Wrapper>
     </Provider>

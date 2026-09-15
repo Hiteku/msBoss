@@ -18,6 +18,7 @@ const bosses = [
     soul: '|1200|3500',
     erion: '|45|360',
     traces: '|210|630',
+    mystery: '|1800|2000',
     crystallization: '|w 7.5億|w 13.68億',
   },
   {
@@ -40,6 +41,7 @@ const bosses = [
     soul: '|800|2400',
     erion: '||120',
     traces: '|80|240',
+    mystery: '|1750|1950',
     crystallization: '|w 5.6億|w 8.4億',
   },
   {
@@ -62,6 +64,7 @@ const bosses = [
     soul: '|600|1400',
     erion: '||60',
     traces: '|80|240',
+    mystery: '|1700|1850',
     crystallization: '|w 4.2億|w 7.49億',
   },
   {
@@ -83,6 +86,7 @@ const bosses = [
     soul: '|480|1500',
     erion: '||90',
     traces: '|60|240',
+    mystery: '|1700|1850',
     crystallization: '|w 3.5532億|w 8.1751億',
   },
   {
@@ -105,6 +109,7 @@ const bosses = [
     soul: '|300|500|900|3000',
     erion: '|||60|480',
     traces: '|20|80|240|1440',
+    mystery: '|1550|1700|1800|2000',
     crystallization: '|w 2.583億|w 3.617億|w 7.211億|w 14.433億',
   },
   {
@@ -126,6 +131,7 @@ const bosses = [
     soul: '|200|350|1000|2800',
     erion: '|||30|240',
     traces: '|10|40|180|540',
+    mystery: '|1500|1600|1800|1950',
     crystallization: '|w 2.527億|w 3.71億|w 6.82億|w 13.44億',
   },
   {
@@ -142,12 +148,13 @@ const bosses = [
     furnishing: '||卡洛斯吊扇|卡洛斯吊扇|卡洛斯吊扇',
     enhance: '||生命研磨石|生命研磨石|卓越鐵鎚(眼飾),生命研磨石',
     box: '|白玉的BOSS戒指箱子|白玉的BOSS戒指箱子|生命的BOSS戒指箱子|生命的BOSS戒指箱子',
-    focus: '||遺留的卡洛斯意志碎片|遺留的卡洛斯意志|遺留的卡洛斯意志,意志的永恆防具箱,玲瓏月光藥水',
+    focus: '||遺留的卡洛斯的意志碎片|遺留的卡洛斯意志|遺留的卡洛斯意志,意志的永恆防具箱,玲瓏月光藥水',
     ELTA: '|200|250|400|700',
     determination: '||a 10|a 70|a 400',
     soul: '|180|325|550|2600',
     erion: '||||180',
     traces: '|6|30|100|500',
+    mystery: '|1500|1600|1750|1900',
     crystallization: '|w 2.369億|w 3.9億|w 6.188億|w 12.371億',
   },
   {
@@ -166,10 +173,11 @@ const bosses = [
     box: '黑玉的BOSS戒指箱子|白玉的BOSS戒指箱子|白玉的BOSS戒指箱子',
     focus: '破曉墜飾|米特拉的憤怒選擇箱,破曉墜飾,米特拉的核心寶石|米特拉的憤怒選擇箱,破曉墜飾,米特拉的核心寶石,玲瓏月光藥水',
     ELTA: '150|220|560',
-    determination: '||a 6|a 80',
-    soul: '|160|250|750',
-    erion: '|||30',
-    traces: '|6|15|180',
+    determination: '|a 6|a 80',
+    soul: '160|250|750',
+    erion: '||30',
+    traces: '6|15|180',
+    mystery: '1400|1500|1850',
     crystallization: 'w 1.498億|w 2.716億|w 7.242億',
   },
   {
@@ -206,6 +214,8 @@ const bosses = [
     focus: '|星耀耳環|指揮官力量耳環,星耀耳環,神秘冥界幽靈武器箱,神秘冥界幽靈防具箱',
     ELTA: '||120',
     determination: '|t 25|t 75',
+    soul: '|40|95',
+    mystery: '|900|1300',
     crystallization: '|w 8470萬|w 1億2620萬',
   },
   {
@@ -223,6 +233,7 @@ const bosses = [
     box: '黑玉的BOSS戒指箱子|生命的BOSS戒指箱子',
     focus: '閃耀的龍鱗片,神秘冥界幽靈武器箱,神秘冥界幽靈防具箱|閃耀的龍鱗片,惡意永恆防具箱,石像瑪麗西亞裝飾設計圖',  // 瑪麗西亞靈魂寶珠
     ELTA: '120|1000',
+    soul: '170|5000',
     crystallization: 'w 1.5億|w 15億',
   },
   {
@@ -240,6 +251,8 @@ const bosses = [
     focus: '|苦痛的根源,破曉墜飾,神秘冥界幽靈武器箱,神秘冥界幽靈防具箱|破曉墜飾|苦痛的根源,破曉墜飾,神秘冥界幽靈武器箱,神秘冥界幽靈防具箱',
     ELTA: '||70|100',
     determination: '||t 45|t 90',
+    soul: '||70|100',
+    mystery: '||1200|1350',
     crystallization: '|1億4520萬|w 1億2440萬|w 1億4520萬',
   },
   {
@@ -257,6 +270,8 @@ const bosses = [
     focus: '|星耀耳環|巨大的恐怖,星耀耳環,神秘冥界幽靈武器箱,神秘冥界幽靈防具箱',
     ELTA: '||100',
     determination: '|t 20|t 65',
+    soul: '|40|90',
+    mystery: '|900|1250',
     crystallization: '|w 7950萬|w 1億1120萬',
   },
   {
@@ -273,7 +288,9 @@ const bosses = [
     box: '|綠玉的BOSS戒指箱子|綠玉的BOSS戒指箱子|紅玉的BOSS戒指箱子',
     focus: '||克伯威水滴石,暮光印記|受詛咒的魔導書選擇箱,克伯威水滴石,暮光印記,神秘冥界幽靈武器箱,神秘冥界幽靈防具箱,鏡子世界的核心寶石',
     ELTA: '|||50',
-    determination: '||t 25|t 75',
+    determination: '|t 15|t 25|t 75',
+    soul: '|10|35|80',
+    mystery: '|700|800|1200',
     crystallization: '|w 5740萬|w 7420萬|w 1億2740萬',
   },
   {
@@ -291,7 +308,9 @@ const bosses = [
     box: '|綠玉的BOSS戒指箱子|綠玉的BOSS戒指箱子|紅玉的BOSS戒指箱子',
     focus: '||蝴蝶翅膀水滴石,暮光印記|夢幻的腰帶,蝴蝶翅膀水滴石,暮光印記,神秘冥界幽靈武器箱,神秘冥界幽靈防具箱',
     ELTA: '|||50',
-    determination: '||t 20|t 65',
+    determination: '|t 15|t 20|t 65',
+    soul: '|10|35|80',
+    mystery: '|700|800|1200',
     crystallization: '|w 5380萬|w 6430萬|w 1億240萬',
   },
   {
@@ -307,6 +326,8 @@ const bosses = [
     box: '綠玉的BOSS戒指箱子|黑玉的BOSS戒指箱子',
     focus: '守護者天使戒指|守護者天使戒指',
     ELTA: '|70',
+    soul: '10|90',
+    mystery: '600|1250',
     crystallization: 'w 4300萬|w 1億2650萬',
   },
   {
@@ -323,7 +344,9 @@ const bosses = [
     box: '|綠玉的BOSS戒指箱子|紅玉的BOSS戒指箱子',
     focus: '|毀滅力量盾牌,扭曲烙印的靈魂石|附有魔力的眼罩,毀滅力量盾牌,扭曲烙印的靈魂石,航海師武器箱,航海師防具箱',
     ELTA: '||50',
-    determination: '||t 50',
+    determination: '|t 10|t 50',
+    soul: '|10|50',
+    mystery: '|500|1000',
     crystallization: '|w 2884萬3452|w 8570萬',
   },
   {
@@ -340,7 +363,9 @@ const bosses = [
     box: '|綠玉的BOSS戒指箱子|紅玉的BOSS戒指箱子|白玉的BOSS戒指箱子',
     focus: '|特殊能量硬幣(S級)|口紅控制器標誌,特殊能量硬幣(S級),航海師武器箱,航海師防具箱|全面控制核心,口紅控制器標誌',  // 受損的黑心臟
     ELTA: '||50|',
-    determination: '||t 50|t 50',
+    determination: '|t 10|t 50|t 50',
+    soul: '|10|45|450',
+    mystery: '|500|1000|1650',
     crystallization: '|w 2720萬7040|w 9190萬|w 3億2350萬',
   },
   {
@@ -354,6 +379,8 @@ const bosses = [
     death: '5|5',
     furnishing: '|西格諾斯娃娃置物架',
     focus: '黑色破壞的碎片,黑色守護的碎片|黑色破壞的碎片,黑色守護的碎片,女皇系列肩膀',
+    soul: '|10',
+    mystery: '10|50',
     crystallization: 'w 530萬7400|w 870萬9400',
   },
   {
@@ -367,6 +394,7 @@ const bosses = [
     death: '5|5',
     furnishing: '|粉豆沙發',
     focus: '黑豆標記,金花草腰帶,粉紅聖杯|黑豆標記,金花草腰帶,粉紅聖杯',
+    mystery: '|50',
     crystallization: 'd 81萬3700|w 763萬0700',
   },
   /* {
@@ -394,6 +422,7 @@ const bosses = [
     death: '20',
     other: '濃姬特效交換券,妖蝶姬之座椅,濃姬傷害字型',
     focus: '魅惑的碎片',
+    mystery: '400',
     crystallization: 'w 895萬3200',
   },
   {
@@ -447,6 +476,8 @@ const bosses = [
     other: '奇岩礦石之椅|奇岩礦石之椅',
     furnishing: '|貝倫熔岩浴缸',
     focus: '|破滅的碎片,混沌貝倫的頭盔',
+    soul: '|10',
+    mystery: '|300',
     crystallization: 'd 56萬0800|w 907萬0003',
   },
   {
@@ -461,6 +492,8 @@ const bosses = [
     other: '怕怕皇后|怕怕皇后',
     furnishing: '|血腥皇后梳妝台',
     focus: '|吶喊的碎片,混沌皇后的皇冠',
+    soul: '|10',
+    mystery: '|200',
     crystallization: 'd 56萬0800|w 768萬2035',
   },
   {
@@ -475,6 +508,8 @@ const bosses = [
     other: '與斑斑一起|與斑斑一起',
     furnishing: '|斑斑的發條鐘',
     focus: '|時間碎片,混沌斑斑頭盔',
+    soul: '|10',
+    mystery: '|200',
     crystallization: 'd 56萬0800|w 769萬3781',
   },
   {
@@ -489,6 +524,8 @@ const bosses = [
     other: '開心的比艾樂|開心的比艾樂',
     furnishing: '|比艾樂傘架',
     focus: '|嘲弄的碎片,混沌比艾樂帽',
+    soul: '|10',
+    mystery: '|200',
     crystallization: 'd 56萬0800|w 731萬3306',
   },
   {
@@ -503,6 +540,8 @@ const bosses = [
     other: '|拉圖斯的時間椅子|拉圖斯的時間椅子',
     furnishing: '||拉圖斯壁鐘',
     focus: '||拉圖斯標誌',
+    soul: '||10',
+    mystery: '||400',
     crystallization: 'd 39萬6500|d 154萬3700|w 2008萬8150',
   },
   {
@@ -540,6 +579,7 @@ const bosses = [
     other: '[寵物箱子] 暗黑之魂|[寵物箱子] 暗黑之魂',
     furnishing: '|希拉方尖碑造型立燈',
     focus: '永生之石|永生之石,地獄火耳環',
+    mystery: '|50',
     crystallization: 'd 46萬3500|w 667萬7700',
   },
   {
@@ -553,6 +593,8 @@ const bosses = [
     death: '5|10|15',
     furnishing: '||梅格耐斯尖角椅子',
     focus: '皇家暗黑合金護肩,水晶溫杜斯胸章|皇家暗黑合金護肩,水晶溫杜斯胸章|被詛咒的凱撒利恩,皇家暗黑合金護肩,水晶溫杜斯胸章',
+    soul: '||10',
+    mystery: '||300',
     crystallization: 'd 41萬8300|d 150萬1700|w 881萬9007',
   },
   {
@@ -566,6 +608,8 @@ const bosses = [
     death: '50|5|5',
     furnishing: '||炎魔之手桌子',
     focus: '凝聚力量的結晶石,水中信紙眼飾|凝聚力量的結晶石,水中信紙眼飾|憤怒的殘暴炎魔的腰帶,凝聚力量的結晶石,水中信紙眼飾',
+    soul: '||10',
+    mystery: '||200',
     crystallization: 'd 11萬5800|d 35萬4800|w 705萬9750',
   },
   {
@@ -578,17 +622,6 @@ const bosses = [
     timeout: '20',
     death: '5',
     furnishing: '巴洛古尖角椅子',
-    crystallization: '',
-  },
-  {
-    img: 'Bigfoot',
-    name: '終極怪物公園',
-    hard: '副本',
-    level: '260',
-    health: '15兆',
-    defense: '300',
-    timeout: '20',
-    death: '1',
     crystallization: '',
   },
   /*{
@@ -627,6 +660,17 @@ const bosses = [
     timeout: '',
     death: '',
     furnishing: '天狗的羽毛捕夢網',
+    crystallization: '',
+  },
+  {
+    img: 'Bigfoot',
+    name: '終極怪物公園',
+    hard: '副本',
+    level: '260',
+    health: '15兆',
+    defense: '300',
+    timeout: '20',
+    death: '1',
     crystallization: '',
   },
   {

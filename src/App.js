@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import Filter from "./bossFilter";
 
 var path = 'https://hiteku.github.io/img/ms/'
-// path = '../img/ms'
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -47,7 +46,20 @@ const HardTag = styled.span`
     color: #ff3b4f;
     border: 1px solid #ff3b4f;
   }
+  &.instance {
+    background: #7654A8;
+  }
+  &.map {
+    background: #4F8A5B;
+  }
 `;
+
+const DetailIcon = ({ name, folder = '' }) => (
+  <div className="tooltip-container">
+    <img src={path + `icon/${folder}${name}.png`} style={{ verticalAlign: 'middle' }} alt="" />
+    <img className="tooltip-image" src={path + `detail/${folder}${name}.png`} alt="" />
+  </div>
+);
 
 function Item(item, index, type) {
   let t, m, stage, result = [];
@@ -60,20 +72,11 @@ function Item(item, index, type) {
     result = <><img src={path + "icon/" + "楓幣減免.png"}/><img src={path + "icon/" + "固定潛能.png"}/></>;
   else {
     if (type === 2) {
-      const imgName = t[index];
-      result = (
-        <div className="tooltip-container">
-          <img src={path + "icon/furnishing/" + imgName + ".png"} alt="" />
-          <img className="tooltip-image" src={path + "detail/furnishing/" + imgName + ".png"} alt="" />
-        </div>
-      );
+      result = <DetailIcon name={t[index]} folder="furnishing/" />;
     } else if (type < 4) {
       m = t[index].split(',');
       result = m.map((name, j) => (
-        <div key={j} className="tooltip-container">
-          <img src={path + "icon/" + name + ".png"} alt="" />
-          <img className="tooltip-image" src={path + "detail/" + name + ".png"} alt="" />
-        </div>
+        <DetailIcon key={j} name={name} />
       ));
     } else if (type === 6) {
       const iconMap = { d: '強烈的力量結晶_每日', w: '強烈的力量結晶_每週', m: '強烈的力量結晶_每月', t: '黑暗的痕跡', a: '敵對者的決心', ARC: '秘法符文', AUT: '真實符文' };
@@ -82,21 +85,13 @@ function Item(item, index, type) {
         .filter(Boolean)
         .map((char, i) => {
           const icon = iconMap[char];
-          if (icon) {
-            return (
-              <img
-                key={i}
-                src={`https://hiteku.github.io/img/ms/icon/${icon}.png`}
-                alt=""
-                style={{ verticalAlign: 'middle' }}
-              />
-            );
-          }
-          return char;
+          return icon
+            ? <DetailIcon key={i} name={icon} />
+            : char;
         });
     }
     else if (type === 7) {
-      const hardMap = { '簡單': 'easy', '普通': 'normal', '困難': 'hard', '混沌': 'chaos', '終極': 'extreme' };
+      const hardMap = { '簡單': 'easy', '普通': 'normal', '困難': 'hard', '混沌': 'chaos', '終極': 'extreme', '副本': 'instance', '地圖': 'map' };
       result = t[index].split('\n').map((name, i) => {
         const className = hardMap[name];
         if (className) {
@@ -140,18 +135,18 @@ function newTR(props, length, checkboxValue) {
       <tr key={i}>
         {(props.boss.img === 'Dyle' || props.boss.img === 'Seruf' || props.boss.img === 'Tengu' || props.boss.img === 'Dorothy') ?
         i === length-1 && <td rowSpan={i+1}>{props.boss.name}</td> :
-        i === length-1 && <td rowSpan={i+1}><img style={{width: "170px"}} src={path + "boss/" + props.boss.img + ".png"} alt=""/><br/>{props.boss.name}</td> }
+        i === length-1 && <td rowSpan={i+1}><img style={{width: "170px"}} src={`${path}boss/${props.boss.img}.png`} alt=""/><br/>{props.boss.name}</td> }
         <td>{Item(props.boss.hard, i, 7)}</td>
         <td>{Item(props.boss.level, i)}</td>
         <td>{Item(props.boss.health, i)}</td>
         <td>{Item(props.boss.defense, i)}</td>
         <td>{Item(props.boss.ARCAUT, i, 6)}</td>
-        <td>{checkboxValue ? Item(props.boss.determination, i, 6) : Item(props.boss.focus, i, 3)}</td>
-        <td>{checkboxValue ? Item(props.boss.soul, i, 5) : Item(props.boss.box, i, 1)}</td>
-        <td>{checkboxValue ? Item(props.boss.erion, i, 5) : Item(props.boss.enhance, i, 1)}</td>
-        <td>{checkboxValue ? Item(props.boss.traces, i, 5) : Item(props.boss.other, i, 1)}</td>
-        <td>{checkboxValue ? Item(props.boss.ELTA, i, 5) : Item(props.boss.furnishing, i, 2)}</td>
-        <td>{Item(props.boss.crystallization, i, 6)}</td>
+        <td>{checkboxValue ? Item(props.boss.focus, i, 3) : Item(props.boss.determination, i, 6)}</td>
+        <td>{checkboxValue ? Item(props.boss.box, i, 1) : Item(props.boss.traces, i, 5)}</td>
+        <td>{checkboxValue ? Item(props.boss.enhance, i, 1) : Item(props.boss.erion, i, 5)}</td>
+        <td>{checkboxValue ? Item(props.boss.other, i, 1) : Item(props.boss.soul, i, 5)}</td>
+        <td>{checkboxValue ? Item(props.boss.furnishing, i, 2) : Item(props.boss.ELTA, i, 5)}</td>
+        <td>{checkboxValue ? Item(props.boss.crystallization, i, 6) : Item(props.boss.mystery, i, 5)}</td>
       </tr>)
   }
   return lists.reverse()
@@ -169,7 +164,7 @@ function BossList() {
 
   const bosses = useSelector((store) => store.bossesReducer);
   const filter = useSelector((store) => store.filterReducer);
-  const [checkboxValue, setCheckboxValue] = useState(false);
+  const [checkboxValue, setCheckboxValue] = useState(true);
 
   const renderItems = () => {
     let list = [];
@@ -205,19 +200,19 @@ function BossList() {
               <th rowSpan="2" style={{width: "5%"}}>等級</th>
               <th rowSpan="2" style={{width: "15%"}}>血量</th>
               <th rowSpan="2" style={{width: "5%"}}>防禦％</th>
-              <th rowSpan="2" style={{width: "7.5%"}}>符文</th>
-              <th colSpan="6">{checkboxValue ? "素材量" : "掉落物"}</th>
+              <th rowSpan="2" style={{width: "7.5%"}}>符文需求</th>
+              <th colSpan="6">{checkboxValue ? "掉落物" : "素材量"}</th>
             </tr>
             <tr>
-              <th>{checkboxValue ? "創世／命運武器" : "重點物品"}</th>
-              <th style={{width: "5%"}}>{checkboxValue ? <img src="https://hiteku.github.io/img/ms/icon/激戰的痕跡.png" alt=""/> : "隨機箱"}</th>
-              <th style={{width: "5%"}}>{checkboxValue ? <img src="https://hiteku.github.io/img/ms/icon/艾里溫的碎片交換券.png" alt=""/> : "強化"}</th>
-              <th style={{width: "5%"}}>{checkboxValue ? <img src="https://hiteku.github.io/img/ms/icon/靈魂碎片.png" alt=""/> : "特殊"}</th>
-              <th style={{width: "5%"}}>{checkboxValue ? <img src="https://hiteku.github.io/img/ms/icon/靈魂艾爾達氣息.png" alt=""/> : "家具"}</th>
+              <th>{checkboxValue ? "重點" : "創世／命運武器"}</th>
+              <th style={{width: "5%"}}>{checkboxValue ? "隨機箱" : <DetailIcon name="激戰的痕跡" />}</th>
+              <th style={{width: "5%"}}>{checkboxValue ? "強化" : <DetailIcon name="艾里溫的碎片" />}</th>
+              <th style={{width: "5%"}}>{checkboxValue ? "特殊" : <DetailIcon name="靈魂碎片" />}</th>
+              <th style={{width: "5%"}}>{checkboxValue ? "家具" : <DetailIcon name="靈魂艾爾達氣息" />}</th>
               {/* <th style={{width: "4.5%"}}>祈禱精髓</th>
               <th style={{width: "4.5%"}}><img src="https://hiteku.github.io/img/ms/icon/可疑的附加方塊.png" alt=""/></th>
               <th style={{width: "4%"}}><img src="https://hiteku.github.io/img/ms/icon/靈魂艾爾達氣息.png" alt=""/></th> */}
-              <th style={{width: "13%"}}>強烈的力量結晶</th>
+              <th style={{width: "13%"}}>{checkboxValue ? "強烈的力量結晶" : <img src="https://hiteku.github.io/img/ms/icon/神祕的氣息.png" alt=""/>}</th>
             </tr>
           </thead>
           {renderItems()}
