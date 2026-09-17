@@ -9,20 +9,20 @@ const Wrapper = styled.div`
 const DateContainer = styled.div`
   padding: 2em;
   border-radius: 11px 11px 11px 11px;
-  background-color: #444;
+  background-color: #fff;
 
   h2 {
-    color: #fff;
+    color: #444;
     text-align: center;
   }
 `;
 
 const Kaling = [
   { src: 'https://i.imgur.com/DirSAaQ.gif' },
-  { src: 'https://i.imgur.com/AkcvyVg.png' },
   { src: 'https://i.imgur.com/Q0oqOFn.gif' },
   { src: 'https://i.imgur.com/8npJ4Xw.gif' },
   { src: 'https://i.imgur.com/KoiG8OP.gif' },
+  { src: 'https://hiteku.github.io/img/ms/gif/與咖凌的約會椅子_Hiteku.gif' },
   { src: 'https://i.imgur.com/vAAUlg5.png', type: 'dialog' },
   { src: 'https://i.imgur.com/AvG3D1Y.png', type: 'dialog' },
   { src: 'https://i.imgur.com/3kv7Qzs.png', type: 'dialog' },
@@ -44,10 +44,10 @@ const Kaling = [
 
 const Seren = [
   { src: 'https://i.imgur.com/lTfC21v.gif' },
-  { src: 'https://i.imgur.com/NG0mPDJ.png' },
   { src: 'https://i.imgur.com/7W6CL5f.gif' },
   { src: 'https://i.imgur.com/qgMDtaA.gif' },
   { src: 'https://i.imgur.com/qz1Pl94.gif' },
+  { src: 'https://hiteku.github.io/img/ms/gif/與賽蓮的約會椅子_Hiteku.gif' },
   { src: 'https://i.imgur.com/fSA2nVf.png', type: 'dialog' },
   { src: 'https://i.imgur.com/c8WxQ96.png', type: 'dialog' },
   { src: 'https://i.imgur.com/1JuBVTU.png', type: 'dialog' },
@@ -67,6 +67,10 @@ const Seren = [
 
 const Orchid = [
   { src: 'https://i.imgur.com/tPsMDnh.gif' },
+  { src: 'https://i.imgur.com/zBIKYP5.gif' },
+  { src: 'https://i.imgur.com/dcm1jcR.gif' },
+  { src: 'https://i.imgur.com/E5ECgX1.gif' },
+  { src: 'https://hiteku.github.io/img/ms/gif/與殺人鯨的約會椅子_Hiteku.gif' },
   { src: 'https://i.imgur.com/rQQoh08.png', type: 'dialog' },
   { src: 'https://i.imgur.com/Vq3yHlB.png', type: 'dialog' },
   { src: 'https://i.imgur.com/Fu0EKup.png', type: 'dialog' },
@@ -86,12 +90,6 @@ const Orchid = [
   { src: 'https://i.imgur.com/cjdrxDF.png', type: 'CG' },
   { src: 'https://i.imgur.com/18va8GR.png', type: 'CG' },
   { src: 'https://i.imgur.com/1eS34Oy.png', type: 'CG' },
-];
-
-const groups = [
-  { name: 'Kaling', images: Kaling },
-  { name: 'Seren', images: Seren },
-  { name: 'Orchid', images: Orchid },
 ];
 
 const renderImages = data => (
@@ -123,7 +121,7 @@ function Date() {
   return (
     <Wrapper>
         <DateContainer>
-            <img src="https://i.imgur.com/RuYFQGk.png"/><hr style={{ marginTop: '100px' }} />
+            <img src="https://i.imgur.com/RuYFQGk.png" style={{ width: '100%' }} alt=""/><hr style={{ marginTop: '69px' }} />
             <h2>咖凌</h2>
             {renderImages(Kaling)}<hr style={{ marginTop: '100px' }} />
             <h2>賽蓮</h2>
